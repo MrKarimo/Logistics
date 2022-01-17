@@ -1,4 +1,5 @@
-﻿using ClassLibrary.Interfeces;
+﻿using ClassLibrary.Const;
+using ClassLibrary.Interfeces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -34,6 +35,11 @@ namespace ClassLibrary
                 try
                 {
                     products = value;
+                    if (products.Count > Global.NumberRecords)
+                    {
+                        var dif = products.Count - Global.NumberRecords;
+                        products.RemoveRange(0, dif);
+                    }
                 }
                 finally
                 {
@@ -62,6 +68,11 @@ namespace ClassLibrary
                 try
                 {
                     shipmentList = value;
+                    if (shipmentList.Count > Global.NumberRecords)
+                    {
+                        var dif = shipmentList.Count - Global.NumberRecords;
+                        shipmentList.RemoveRange(0, dif);
+                    }
                 }
                 finally
                 {
@@ -155,6 +166,11 @@ namespace ClassLibrary
         public void TakeProduct(List<Product> products)
         {
             Products.AddRange(products);
+        }
+
+        public string GenerateReport()
+        {
+            return null;
         }
     }
 }

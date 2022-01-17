@@ -8,8 +8,8 @@ namespace ClassLibrary.Interfeces
 {
     public static class Sorter
     {
-        private static List<Storage> Storages { get; set; }
-        private static List<Truck> Trucks { get; set; }
+        public static List<Storage> Storages { get; private set; }
+        public static List<Truck> Trucks { get; private set; }
 
         public static void InitSorter(List<Storage> storages, List<Truck> trucks )
         {
